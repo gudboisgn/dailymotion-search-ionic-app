@@ -27,7 +27,6 @@ export class HomePage {
    * 
    * Function called when searchbar text changes
    */
-
   search(event){
     setTimeout(() => {
       // Reset variables when search input value changes.
@@ -38,6 +37,7 @@ export class HomePage {
       this.loadData(event);
     }, 500);
   }
+
 
   /**
    * 
@@ -77,8 +77,6 @@ export class HomePage {
       this.videos = null;
     }
     
-
-
   }
 
 
