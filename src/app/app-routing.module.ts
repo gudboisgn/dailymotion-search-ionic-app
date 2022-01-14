@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'video-detail/:id',
+    loadChildren: () => import('./video-detail/video-detail.module').then( m => m.VideoDetailPageModule)
+  },
 ];
 
 @NgModule({

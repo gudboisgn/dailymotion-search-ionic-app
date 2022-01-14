@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Video Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="video-detail-page" *ngIf="videoDetail">
+    <ion-card>
+      <img [src]="videoDetail.thumbnail_480_url" />
+      <ion-card-header>
+        <ion-card-subtitle>
+          <ion-badge color="light">
+            <ion-icon name="person-circle" class="stat-icon"></ion-icon> {{ videoDetail.channel }}
+          </ion-badge>
+          &nbsp; &nbsp; 
+          <ion-badge>
+            <ion-icon name="eye" class="stat-icon"></ion-icon> {{ videoDetail.views_total }} views 
+          </ion-badge>
+        </ion-card-subtitle>
+        <ion-card-title class="video-title">{{ videoDetail.title }}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{ videoDetail.description }}
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="video-detail-page" *ngIf="!videoDetail">
+    <ion-card>
+      
+      <ion-skeleton-text animated style="width: 100%; height: 160px; margin-top: -2px;"></ion-skeleton-text>
+      
+      <ion-card-header>
+        <ion-card-subtitle><ion-skeleton-text animated style="width: 20%"></ion-skeleton-text></ion-card-subtitle>
+        <ion-card-title><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
