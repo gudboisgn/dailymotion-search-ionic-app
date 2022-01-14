@@ -1,0 +1,7 @@
+{
+  "name": "dialyMotionSearchApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

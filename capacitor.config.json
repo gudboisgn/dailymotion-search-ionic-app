@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "dialyMotionSearchApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
