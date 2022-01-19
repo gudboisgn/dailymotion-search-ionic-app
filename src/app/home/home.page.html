@@ -12,10 +12,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="false">
-  <div class="message-container" *ngIf="!videos">
+  <div class="message-container" *ngIf="videos && videos?.length == 0">
     <strong>Start typing in search bar to search.</strong>
   </div>
-  <div class="message-container" *ngIf="videos && videos?.length == 0">
+  <div class="message-container" *ngIf="videoData?.items && !videoData?.items?.list">
     <strong>No search item found.</strong>
   </div>
 
