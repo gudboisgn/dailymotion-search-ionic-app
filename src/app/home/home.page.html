@@ -21,7 +21,7 @@
   <div class="list-container" *ngIf="videos && videos?.length > 0">
     <ion-list>
       <ion-list-header>
-        <ion-label>{{ videoData?.total }} <span *ngIf="videos?.length > 1">result's</span><span *ngIf="videos?.length < 2">result</span> found</ion-label>
+        <ion-label>{{ videoData?.items?.total }} <span *ngIf="videos?.length > 1">result's</span><span *ngIf="videos?.length < 2">result</span> found</ion-label>
       </ion-list-header>
       <ion-item *ngFor="let video of videos; index as i" button (click)="getItemDetail(video.id)">
         <ion-label>
