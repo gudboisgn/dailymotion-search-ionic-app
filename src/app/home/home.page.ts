@@ -20,7 +20,7 @@ export class HomePage {
   videoData = null;
 
   constructor(
-    private restApi: DailymotionRestService,
+    private apiService: DailymotionRestService,
     private router: Router,
     private store: Store<AppState>
     ) {}
@@ -28,7 +28,7 @@ export class HomePage {
 
     ngOnInit() {
       // Get data from AppState
-      this.restApi.getData().subscribe(data => {
+      this.apiService.getData().subscribe(data => {
         // console.log(data);
         if(data && data.items && data.items?.list){
           this.videoData = data;

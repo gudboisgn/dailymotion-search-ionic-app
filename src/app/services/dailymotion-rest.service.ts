@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 
 import { LoadDataBegin } from "../state/app.actions";
-import { AppState, getAllItems, getDataState } from "../state";
+import { AppState, getAllItems, getDataState, getDetailState } from "../state";
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,10 @@ export class DailymotionRestService {
 
   getData() {
     return this.store.select(getDataState);
+  }
+
+  getDetail() {
+    return this.store.select(getDetailState);
   }
 
   getItems() {

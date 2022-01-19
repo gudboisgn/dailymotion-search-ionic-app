@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { DailymotionRestService } from '../services/dailymotion-rest.service';
+import { AppState } from '../state';
+import { LoadDetailBegin } from '../state/detail/detail.actions';
 
 @Component({
   selector: 'app-video-detail',
@@ -14,13 +17,22 @@ export class VideoDetailPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private restApi: DailymotionRestService,
+    private apiService: DailymotionRestService,
+    private store: Store<AppState>
     ) { }
 
   ngOnInit() {
     // Get the video Id from the route param
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.getVideoDetail(this.id);
+
+    // Load data from AppState
+    this.apiService.getDetail().subscribe(
+      data => {
+      // console.log(data);
+      this.videoDetail = data.detail || null;
+      }
+    );
   }
 
   /**
@@ -30,15 +42,8 @@ export class VideoDetailPage implements OnInit {
    * Load Video detail by video id.
    */
   getVideoDetail(id){
-    this.restApi.getVideoDetail(id).subscribe(
-      response => {
-        this.videoDetail = response;
-        // console.log(response);
-      },
-      error => {
-        console.log(error);
-      }
-    )
+    //dispatch LoadDetailBegin Action to load video detail
+    this.store.dispatch(LoadDetailBegin({ videoId: id }));
   }
 
 
