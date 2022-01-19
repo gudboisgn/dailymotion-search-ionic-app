@@ -14,6 +14,7 @@ export class VideoDetailPage implements OnInit {
 
   id:string;
   videoDetail:any = null;
+  loading:boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,6 +31,7 @@ export class VideoDetailPage implements OnInit {
     this.apiService.getDetail().subscribe(
       data => {
       // console.log(data);
+      this.loading = data.loading;
       this.videoDetail = data.detail || null;
       }
     );

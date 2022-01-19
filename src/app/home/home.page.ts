@@ -18,6 +18,7 @@ export class HomePage {
   searchText:string = "";
   videos = [];
   videoData = null;
+  loading:boolean = false;
 
   constructor(
     private apiService: DailymotionRestService,
@@ -29,7 +30,7 @@ export class HomePage {
     ngOnInit() {
       // Get data from AppState
       this.apiService.getData().subscribe(data => {
-        // console.log(data);
+        this.loading = data.loading;
         if(data && data.items && data.items?.list){
           this.videoData = data;
           for (let i = 0; i < data.items?.list?.length; i++) {
