@@ -1,12 +1,7 @@
 # Dailymotion Search Mobile App
 
-Dailymotion Search App lets you search video in dailymotion video sharing platform and view the detail of searched video. Application is developed using Ionic(Angular) Framework.
+Dailymotion Search App lets you search video by title in dailymotion video sharing platform and view the detail of searched video. Application is developed using Ionic/Angular Framework.
 
-
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
 
 ## Authors
 
